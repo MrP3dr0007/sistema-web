@@ -37,16 +37,13 @@ if ($user = $result->fetch_assoc()) {
 
         header("Location: index.php");
         exit;
-
     } else {
 
         header("Location: login.php?erro=senha");
         exit;
     }
-
 } else {
 
     header("Location: login.php?erro=usuario");
     exit;
 }
-?>
