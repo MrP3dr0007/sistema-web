@@ -70,7 +70,6 @@ if (isset($_POST['salvar'])) {
 
         $mensagem = "Preencha o nome e o e-mail!";
         $tipo = "erro";
-
     } else {
 
         // Verificar se o e-mail já pertence a outro usuário
@@ -87,7 +86,6 @@ if (isset($_POST['salvar'])) {
 
             $mensagem = "Este e-mail já está cadastrado!";
             $tipo = "erro";
-
         } else {
 
             // Se a senha estiver vazia, mantém a senha atual
@@ -98,7 +96,6 @@ if (isset($_POST['salvar'])) {
 
                     $mensagem = "A nova senha deve ter pelo menos 6 caracteres!";
                     $tipo = "erro";
-
                 } else {
 
                     $senhaHash = password_hash(
@@ -128,7 +125,6 @@ if (isset($_POST['salvar'])) {
                         // Atualiza os dados exibidos no formulário
                         $usuario['nome'] = $nome;
                         $usuario['email'] = $email;
-
                     } else {
 
                         $mensagem = "Erro ao atualizar usuário!";
@@ -137,7 +133,6 @@ if (isset($_POST['salvar'])) {
 
                     $update->close();
                 }
-
             } else {
 
                 $update = $conn->prepare(
@@ -161,7 +156,6 @@ if (isset($_POST['salvar'])) {
                     // Atualiza os dados exibidos no formulário
                     $usuario['nome'] = $nome;
                     $usuario['email'] = $email;
-
                 } else {
 
                     $mensagem = "Erro ao atualizar usuário!";
@@ -187,13 +181,11 @@ if (isset($_POST['salvar'])) {
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+        content="width=device-width, initial-scale=1.0">
 
     <title>Editar usuário</title>
 
     <style>
-
         * {
             box-sizing: border-box;
         }
@@ -353,9 +345,7 @@ if (isset($_POST['salvar'])) {
         }
 
 
-        /* ========================= */
-        /* RESPONSIVIDADE - CELULAR */
-        /* ========================= */
+        /* ============= PARA CELULAR ============= */
 
         @media (max-width: 500px) {
 
@@ -437,76 +427,71 @@ if (isset($_POST['salvar'])) {
                 font-size: 11px;
             }
         }
-
     </style>
 
 </head>
 
 <body>
 
-<div class="card">
+    <div class="card">
 
-    <h2>✏️ Editar usuário</h2>
+        <h2>✏️ Editar usuário</h2>
 
-    <?php if ($mensagem): ?>
+        <?php if ($mensagem): ?>
 
-        <div class="msg <?= htmlspecialchars($tipo) ?>">
+            <div class="msg <?= htmlspecialchars($tipo) ?>">
 
-            <?= htmlspecialchars($mensagem) ?>
+                <?= htmlspecialchars($mensagem) ?>
 
-        </div>
+            </div>
 
-    <?php endif; ?>
-
-
-    <form method="POST">
-
-        <input
-            type="hidden"
-            name="csrf_token"
-            value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>"
-        >
-
-        <input
-            type="text"
-            name="nome"
-            value="<?= htmlspecialchars($usuario['nome']) ?>"
-            placeholder="Nome"
-            required
-        >
-
-        <input
-            type="email"
-            name="email"
-            value="<?= htmlspecialchars($usuario['email']) ?>"
-            placeholder="E-mail"
-            required
-        >
-
-        <input
-            type="password"
-            name="senha"
-            placeholder="Nova senha (opcional)"
-            minlength="6"
-        >
-
-        <small>
-            Deixe em branco para manter a senha atual.
-            A nova senha deve ter pelo menos 6 caracteres.
-        </small>
-
-        <button type="submit" name="salvar">
-            💾 Salvar alterações
-        </button>
-
-    </form>
+        <?php endif; ?>
 
 
-    <a class="voltar" href="index.php">
-        ← Voltar para usuários
-    </a>
+        <form method="POST">
 
-</div>
+            <input
+                type="hidden"
+                name="csrf_token"
+                value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
+
+            <input
+                type="text"
+                name="nome"
+                value="<?= htmlspecialchars($usuario['nome']) ?>"
+                placeholder="Nome"
+                required>
+
+            <input
+                type="email"
+                name="email"
+                value="<?= htmlspecialchars($usuario['email']) ?>"
+                placeholder="E-mail"
+                required>
+
+            <input
+                type="password"
+                name="senha"
+                placeholder="Nova senha (opcional)"
+                minlength="6">
+
+            <small>
+                Deixe em branco para manter a senha atual.
+                A nova senha deve ter pelo menos 6 caracteres.
+            </small>
+
+            <button type="submit" name="salvar">
+                💾 Salvar alterações
+            </button>
+
+        </form>
+
+
+        <a class="voltar" href="index.php">
+            ← Voltar para usuários
+        </a>
+
+    </div>
 
 </body>
 
