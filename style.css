@@ -638,7 +638,7 @@ hr {
     color: #000;
 }
 
-/* =======MELHORIAS PARA CELULAR======= */
+/* ======= MELHORIAS PARA CELULAR ======= */
 
 @media (max-width: 500px) {
 
@@ -771,7 +771,7 @@ hr {
 }
 
 
-/* =======CELULARES MUITO PEQUENOS======== */
+/* ======= CELULARES MUITO PEQUENOS ======== */
 
 @media (max-width: 360px) {
 
