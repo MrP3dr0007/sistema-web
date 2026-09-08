@@ -92,7 +92,7 @@ $ultimoUsuario = $ultimoQuery->fetch_assoc();
 
             <div>
 
-                <h1>🖥️ Sistema Web</h1>
+                <h1>🖥️ User Manager</h1>
 
                 <p>
                     Bem-vindo,
