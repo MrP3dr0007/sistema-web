@@ -435,7 +435,7 @@ if (isset($_POST['salvar'])) {
 
     <div class="card">
 
-        <h2>✏️ Editar usuário</h2>
+        <h2>Editar usuário</h2>
 
         <?php if ($mensagem): ?>
 
